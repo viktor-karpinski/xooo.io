@@ -1,0 +1,72 @@
+header {
+    width: 100vw;
+    height: 100vh;
+
+    background: #e3e3e4;
+
+    padding: 10rem 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .wrapper {
+        overflow: visible;
+    }
+
+    .carousel {
+        overflow: hidden;
+        display: flex;
+
+        align-items: center;
+
+        margin-top: 5rem;
+
+        width: auto;
+        
+        > * {
+            flex: 0 0 100%;
+        }
+
+        .group {
+            display: flex;
+            animation: scrolling 10s linear infinite;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            
+        }
+
+        @keyframes scrolling {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+
+        a {
+            display: block;
+            padding: 2rem;
+
+            img {
+                height: 18rem;
+            }
+
+            h2 {
+                text-align: center;
+                font-size: 1.8rem;
+
+                span {
+                    font-size: 1.4rem;
+                    display: block;
+                }
+            }
+        }
+    }
+}

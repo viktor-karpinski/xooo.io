@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  font-size: 62.5%;
+  font-family: "Montserrat", serif;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: Min(90vw, 1300px);
+  margin: auto;
+}
+
+nav {
+  width: 100vw;
+  padding: 2rem;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+}
+
+nav #logo {
+  width: 10rem;
+}
+
+nav #logo img {
+  width: 100%;
+}
+
+header {
+  width: 100vw;
+  height: 100vh;
+  background: #e3e3e4;
+  padding: 10rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header h1 {
+  font-size: 4rem;
+}
+
+header .wrapper {
+  overflow: visible;
+}
+
+header .carousel {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5rem;
+  width: auto;
+}
+
+header .carousel > * {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+}
+
+header .carousel .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: scrolling 10s linear infinite;
+          animation: scrolling 10s linear infinite;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+@-webkit-keyframes scrolling {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@keyframes scrolling {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+header .carousel a {
+  display: block;
+  padding: 2rem;
+}
+
+header .carousel a img {
+  height: 18rem;
+}
+
+header .carousel a h2 {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+header .carousel a h2 span {
+  font-size: 1.4rem;
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */

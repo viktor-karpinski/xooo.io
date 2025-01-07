@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+
+    font-size: 62.5%;
+    font-family: "Montserrat", serif;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    width: Min(90vw, 1300px);
+    margin: auto
+}
+
+@import "navigation";
+@import "header";

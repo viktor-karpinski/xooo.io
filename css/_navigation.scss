@@ -1,0 +1,16 @@
+nav {
+    width: 100vw;
+    padding: 2rem;
+    background-color: transparent;
+
+    display: flex;
+
+    position: absolute;
+    
+    #logo {
+        width: 10rem;
+        img {
+            width: 100%;
+        }
+    }
+}
