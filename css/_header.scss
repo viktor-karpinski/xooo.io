@@ -1,72 +1,115 @@
+$carousel-duration: 27s;
+$carousel-items: 7;
+$slide-change-timing: 3;
+$carousel-delay-fraction: $carousel-duration / $carousel-items;
+$carousel-steps-fraction: 100 / $carousel-items;
+$carousel-easing: cubic-bezier(0.37, 0, 0.63, 1);
+
 header {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
-    background: #e3e3e4;
-
-    padding: 10rem 0;
+    background: radial-gradient(#ffffff 0%, #44bd5f5e 100%);//#e3e3e4;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
+    place-items: center;
+    position: relative;
+
     h1 {
         font-size: 4rem;
-    }
+        font-family: Avenir, sans-serif;
+        font-weight: 400;
 
-    .wrapper {
-        overflow: visible;
+        margin-bottom: 3rem;
     }
 
     .carousel {
-        overflow: hidden;
-        display: flex;
-
-        align-items: center;
-
-        margin-top: 5rem;
-
-        width: auto;
-        
-        > * {
-            flex: 0 0 100%;
-        }
-
-        .group {
+        pointer-events: none;
+        perspective: 100px;
+        width: 100%;
+    
+        &__wrapper {
+            position: relative;
             display: flex;
-            animation: scrolling 10s linear infinite;
-            justify-content: space-around;
-            flex-wrap: nowrap;
-            
+            justify-content: center;
+            aspect-ratio: 5 / 4;
         }
-
-        @keyframes scrolling {
-            0% {
-              transform: translateX(0);
+        
+        .item {
+            position: absolute;
+            width: Min(90vw, 418px);
+            height: 100%;
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: carouselanimate $carousel-duration $carousel-easing infinite;
+            padding: 2rem 0;
+    
+            @for $i from 1 through ($carousel-items - 1) {
+                &:nth-child(#{$i}) {
+                    animation-delay: calc(#{$carousel-delay-fraction} * #{$i - 2});
+                }
             }
-            100% {
-              transform: translateX(-100%);
-            }
-          }
-
-        a {
-            display: block;
-            padding: 2rem;
-
-            img {
-                height: 18rem;
+            &:last-child {
+                animation-delay: calc(-#{$carousel-delay-fraction} * 2);
             }
 
             h2 {
+                font-size: 2rem;
                 text-align: center;
-                font-size: 1.8rem;
+                margin-top: 3rem;
 
                 span {
                     font-size: 1.4rem;
                     display: block;
+                    opacity: 0.6;
+                    margin-top: 0.5rem;
                 }
             }
         }
+        
+        img {
+            height: 18rem;
+            width: auto;
+            display: block;
+            margin: auto;
+        }
+    }
+    
+}
+
+@keyframes carouselanimate {
+	0% {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(200%) scale(0.7);
+    }
+    3%, 14.29% { //  #{$slide-change-timing}%,#{$carousel-steps-fraction}% 3%, 25%
+        visibility: visible;
+        opacity: 0.8;
+        transform: translateX(100%) scale(0.9);
+    }
+    17.29%, 28.57% { // #{$carousel-steps-fraction + $slide-change-timing}%, #{$carousel-steps-fraction * 2}% 28%, 50%
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    31.57%, 42.86% { // #{($carousel-steps-fraction * 2) + $slide-change-timing}%,#{$carousel-steps-fraction * 3}% 53%, 75%
+        visibility: visible;
+        opacity: 0.8;
+        transform: translateX(-100%) scale(0.9);
+    }
+    45.86% { // #{($carousel-steps-fraction * 3) + $slide-change-timing}%
+        visibility: visible;
+        opacity: 0;
+        transform: translateX(-200%) scale(0.9);
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-200%) scale(0.7);
     }
 }
