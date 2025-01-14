@@ -2,12 +2,11 @@ nav {
     width: 100vw;
     padding: 1.5rem 0 ;
     background-color: transparent;
+    transition: 0.3s;
 
     position: fixed;
     z-index: 1000;
-    background-color: #111111; //#e3e3e4;
-
-    
+    background-color: $black; //#e3e3e4;
 
     .wrapper {
         display: flex;
@@ -26,19 +25,89 @@ nav {
         background-color: transparent;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 0.6rem;
 
         position: relative;
         width: 2.5rem;
+        height: 2.5rem;
+        overflow: hidden;
 
         span {
             display: block;
             height: 0.1rem;
             background-color: white;
             width: 100%;
+            opacity: 1;
+            transition: 0.3s;
+
+            &:nth-of-type(1) {
+                &.active {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+            }
 
             &:nth-of-type(2) {
                 width: 80%;
+                &.active {
+                    width: 0%;
+                    opacity: 0;
+                }
+            }
+
+            &:nth-of-type(3) {
+                &.active {
+                    transform: rotate(-45deg) translate(5px, -5px);
+                }
+            }
+
+        }
+    }
+}
+
+menu {
+    background-color: $black;
+    position: fixed;
+    left: -100%;
+    transition: 0.4s;
+    width: 80vw;
+    height: 100vh;
+    z-index: 999;
+
+    display: flex;
+    padding-top: 6rem;
+    box-sizing: content-box;
+
+    &.open {
+        left: 0%;
+    }
+    
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: Min(90vw, 1300px);
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+
+
+        li {
+            transform: scale(0.89);
+            a {
+                padding: 1.2rem 0rem;
+                color: white;
+                font-size: 1.8rem;
+                font-family: monospace;
+                width: calc(100% - 10px);
+                margin: 0 auto;
+                display: block;
+            }
+
+            &:last-of-type {
+                a {
+                    border-bottom: none;
+                }
             }
         }
     }

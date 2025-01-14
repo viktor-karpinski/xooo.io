@@ -4,7 +4,7 @@ footer {
     background-color: white;
     padding: 5rem 0;
 
-    border-bottom: 1rem solid #44BD5F;
+    border-bottom: 1rem solid #3bb357;
 
     margin-bottom: 20rem;
     position: relative;
@@ -33,7 +33,7 @@ footer {
                     }
                     a {
                         font-size: 1.6rem;
-                        color: #111111;
+                        color: $black;
                     }
                 }
             }
@@ -54,7 +54,7 @@ footer {
     position: fixed;
     bottom: 0;
     z-index: 0;
-    background-color: #111111;
+    background-color: $black;
     
     .wrapper {
         background-image: url("../assets/images/footer_logo.png");

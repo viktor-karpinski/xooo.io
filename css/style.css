@@ -13,6 +13,23 @@
   scroll-behavior: smooth;
 }
 
+body, html {
+  background-color: #161718;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#parent {
+  -webkit-transition: 0.38s;
+  transition: 0.38s;
+  position: relative;
+  left: 0vh;
+}
+
+#parent.menu {
+  left: -45vw;
+}
+
 .wrapper {
   width: Min(90vw, 1300px);
   margin: 0 auto;
@@ -22,9 +39,11 @@ nav {
   width: 100vw;
   padding: 1.5rem 0;
   background-color: transparent;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   position: fixed;
   z-index: 1000;
-  background-color: #111111;
+  background-color: #161718;
 }
 
 nav .wrapper {
@@ -56,9 +75,14 @@ nav #hamburger {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 0.6rem;
   position: relative;
   width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
 }
 
 nav #hamburger span {
@@ -66,10 +90,83 @@ nav #hamburger span {
   height: 0.1rem;
   background-color: white;
   width: 100%;
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+nav #hamburger span:nth-of-type(1).active {
+  -webkit-transform: rotate(45deg) translate(5px, 5px);
+          transform: rotate(45deg) translate(5px, 5px);
 }
 
 nav #hamburger span:nth-of-type(2) {
   width: 80%;
+}
+
+nav #hamburger span:nth-of-type(2).active {
+  width: 0%;
+  opacity: 0;
+}
+
+nav #hamburger span:nth-of-type(3).active {
+  -webkit-transform: rotate(-45deg) translate(5px, -5px);
+          transform: rotate(-45deg) translate(5px, -5px);
+}
+
+menu {
+  background-color: #161718;
+  position: fixed;
+  left: -100%;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 80vw;
+  height: 100vh;
+  z-index: 999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 6rem;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+menu.open {
+  left: 0%;
+}
+
+menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  width: Min(90vw, 1300px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+menu ul li {
+  -webkit-transform: scale(0.89);
+          transform: scale(0.89);
+}
+
+menu ul li a {
+  padding: 1.2rem 0rem;
+  color: white;
+  font-size: 1.8rem;
+  font-family: monospace;
+  width: calc(100% - 10px);
+  margin: 0 auto;
+  display: block;
+}
+
+menu ul li:last-of-type a {
+  border-bottom: none;
 }
 
 header {
@@ -98,12 +195,12 @@ header h1 {
 
 header .container {
   width: 100vw;
-  background-color: #111111;
-  border-bottom: 10px solid #44BD5F;
+  background-color: #161718;
+  border-bottom: 10px solid #3bb357;
 }
 
 header .container:last-of-type {
-  background: #e3e3e3;
+  background: white;
   padding: 4rem 0 0;
   border: none;
 }
@@ -114,14 +211,14 @@ header .container .wrapper {
 
 header button {
   margin: 4rem auto 2rem;
-  background-color: #44BD5F;
+  background-color: #3bb357;
   font-size: 2rem;
   display: block;
   padding: 1rem 2rem;
   font-family: monospace;
-  border: 2px solid #111111;
-  -webkit-box-shadow: 5px 5px #111111;
-          box-shadow: 5px 5px #111111;
+  border: 2px solid #161718;
+  -webkit-box-shadow: 5px 5px #161718;
+          box-shadow: 5px 5px #161718;
 }
 
 header .carousel {
@@ -256,7 +353,7 @@ header .carousel img {
   17.29%, 28.57% {
     visibility: visible;
     opacity: 1;
-    color: #111111;
+    color: #161718;
     -webkit-transform: translateX(0) scale(1);
             transform: translateX(0) scale(1);
   }
@@ -316,7 +413,7 @@ header .carousel img {
   17.29%, 28.57% {
     visibility: visible;
     opacity: 1;
-    color: #111111;
+    color: #161718;
     -webkit-transform: translateX(0) scale(1);
             transform: translateX(0) scale(1);
   }
@@ -356,7 +453,7 @@ footer {
   width: 100vw;
   background-color: white;
   padding: 5rem 0;
-  border-bottom: 1rem solid #44BD5F;
+  border-bottom: 1rem solid #3bb357;
   margin-bottom: 20rem;
   position: relative;
   z-index: 500;
@@ -405,7 +502,7 @@ footer .wrapper .row ul li strong {
 
 footer .wrapper .row ul li a {
   font-size: 1.6rem;
-  color: #111111;
+  color: #161718;
 }
 
 footer .wrapper .row:last-of-type ul li a {
@@ -419,7 +516,7 @@ footer .wrapper .row:last-of-type ul li a {
   position: fixed;
   bottom: 0;
   z-index: 0;
-  background-color: #111111;
+  background-color: #161718;
 }
 
 #footer-logo .wrapper {
@@ -435,6 +532,7 @@ section {
   padding: 0rem 0;
   background: -webkit-gradient(linear, left top, left bottom, from(#e3e3e3), to(#ffffff));
   background: linear-gradient(to bottom, #e3e3e3, #ffffff);
+  background: white;
   position: relative;
   z-index: 500;
 }

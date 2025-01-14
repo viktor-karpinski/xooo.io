@@ -1,3 +1,6 @@
+$black: #161718;
+$green: #3bb357;
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +18,19 @@
     scroll-behavior: smooth;
 }
 
-body {
+body, html {
+    background-color: $black;
+    transition: 0.3s;
+}
+
+#parent {
+    transition: 0.38s;
+    position: relative;
+    left: 0vh;
+}
+
+#parent.menu {
+    left: -45vw;
 }
 
 .wrapper {
@@ -30,6 +45,7 @@ body {
 section {
     padding: 0rem 0;
     background: linear-gradient(to bottom, #e3e3e3, #ffffff);
+    background: white;
     position: relative;
     z-index: 500;
 
