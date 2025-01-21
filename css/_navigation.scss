@@ -1,21 +1,30 @@
 nav {
     width: 100vw;
-    padding: 1.5rem 0 ;
     background-color: transparent;
-    transition: 0.3s;
 
     position: fixed;
     z-index: 1000;
     background-color: $black; //#e3e3e4;
+    border-bottom: 7px solid transparent;
+
+    ul {
+        display: none;
+    }
+
+    &.border {
+        border-bottom: 7px solid transparent;
+    }
 
     .wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        align-items: center;
     }
     
     #logo {
-        width: 10rem;
+        width: 14rem;
+        margin: 1.5rem 0;
         img {
             width: 100%;
         }
@@ -75,7 +84,7 @@ menu {
     z-index: 999;
 
     display: flex;
-    padding-top: 6rem;
+    padding-top: 7.5rem;
     box-sizing: content-box;
 
     &.open {
@@ -107,6 +116,42 @@ menu {
             &:last-of-type {
                 a {
                     border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 720px)  {
+    nav {
+        #hamburger {
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            height: 4rem;
+            align-items: center;
+            margin-right: -1.5rem;
+
+            li {
+                height: 100%;
+                display: inline-block;
+
+                a {
+                    color: white;
+                    font-size: 1.6rem;
+                    font-family: monospace;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 1.5rem;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: $green;
+
+                    }
                 }
             }
         }

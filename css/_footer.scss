@@ -4,11 +4,11 @@ footer {
     background-color: white;
     padding: 5rem 0;
 
-    border-bottom: 1rem solid #3bb357;
+    border-bottom: 0.7rem solid #3bb357;
 
     margin-bottom: 20rem;
     position: relative;
-    z-index: 500;
+    z-index: 497;
 
     .wrapper {
         display: flex;
@@ -57,11 +57,107 @@ footer {
     background-color: $black;
     
     .wrapper {
+        width: 100%;
         background-image: url("../assets/images/footer_logo.png");
         background-size: contain;
-        background-position: center;
+        background-position: center center;
         height: 10rem;
         background-color: transparent;
         background-repeat: no-repeat;
+    }
+}
+
+@media only screen and (min-width: 720px)  {
+    footer {
+        margin-bottom: 49rem;
+        padding-block: 7rem;
+
+        .wrapper {
+            flex-direction: row;
+            gap: 1.2rem;
+
+            .row {
+                align-items: flex-start;
+                width: 66.66%;
+
+                ul li a {
+                    position: relative;
+                    width: 100%;
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        width: 0%;
+                        height: 1px;
+                        background-color: $black;
+                        transform: translateX(-50%);
+                        left: 50%;
+                        bottom: 0;
+                        transition: 0.3s;
+                    }
+
+                    &:hover::after {
+                        width: 100%;
+                    }
+                }
+
+                &:first-of-type {
+                    ul {
+                        display: grid;
+                        grid-template-areas: 'heading heading', 'fisrt second', 'third fourth';
+
+                        li {
+                            &:nth-of-type(1) {
+                                grid-column: 1 / span 2;
+                                grid-row: 1;
+                                padding-bottom: 3rem;
+                            }
+                            &:nth-of-type(2) {
+                                grid-column: 1 / span 1;
+                                grid-row: 2;
+                            }
+                            &:nth-of-type(3) {
+                                grid-column: 2 / span 1;
+                                grid-row: 2;
+                            }
+                            &:nth-of-type(4) {
+                                grid-column: 1 / span 1;
+                                grid-row: 3;
+                            }
+                            &:nth-of-type(5) {
+                                grid-column: 2 / span 1;
+                                grid-row: 3;
+                            }
+                        }
+                    }
+                }
+
+                &:last-of-type {
+                    width: 33.33%;
+                    gap: 1.2rem;
+                    align-items: flex-end;
+                    ul {
+                        &:first-child {
+                            li {
+                                &:first-of-type {
+                                    padding-bottom: 3rem;
+                                }
+                            }
+                        }
+                        li {
+                            a {
+                                font-size: 1.6rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #footer-logo {
+        .wrapper {
+            height: 38rem;
+        }
     }
 }

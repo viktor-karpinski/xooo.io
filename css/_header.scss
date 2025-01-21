@@ -26,10 +26,23 @@ header {
         line-height: 150%;
     }
 
+    .seperator-line {
+        width: 100vw;
+        height: 7px;
+        background-color: $green;
+        position: relative;
+        
+
+        &.fixed {
+            position: fixed;
+            top: 76.68px;
+            z-index: 1000000;
+        }
+    }
+
     .container {
         width: 100vw;
         background-color: $black;
-        border-bottom: 10px solid #3bb357;
 
         &:last-of-type {
             background: white;
@@ -67,12 +80,17 @@ header {
         
         .item {
             position: absolute;
-            width: Min(90vw, 418px);
+            width: Min(90vw, 2720px);
             height: 100%;
             opacity: 0;
             will-change: transform, opacity;
             animation: carouselanimate $carousel-duration $carousel-easing infinite;
             padding: 2rem 0;
+
+            .content-wrapper {
+                width: Min(90vw, 112rem);
+                margin: 0 auto;
+            }
     
             @for $i from 1 through ($carousel-items - 1) {
                 &:nth-child(#{$i}) {
@@ -180,6 +198,58 @@ header {
         color: transparent;
         .learn-more {
             color: transparent !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 720px)  {
+    header {
+        h1 {
+            font-size: 4.5rem;
+            margin-block: 4.5rem 5rem;
+        }
+
+        .carousel {
+            margin-top: 0.5rem;
+            &__wrapper {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                height: 58rem;
+            }
+            .item {
+                img {
+                    width: 50%;
+                    height: 52rem;
+                    display: block;
+                    object-fit: contain;
+                }
+
+                .content-wrapper {
+                    display: flex;
+                    flex-direction: row-reverse;
+                }
+
+                .description-wrapper {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding-right: 8rem;
+
+                    h2 {
+                        font-size: 3.5rem;
+                        span {
+                            font-size: 2.2rem;
+                        }
+                    }
+
+                    p {
+                        font-size: 2rem;
+                        line-height: 3.5rem;
+                    }
+                }
+            }
         }
     }
 }
